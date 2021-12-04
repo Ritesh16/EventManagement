@@ -11,6 +11,10 @@ export class EventService {
     return this.events;
   }
 
+  getEvent(id: number) {
+    return this.events.find(event => event.id === id);
+  }
+
   events = [
     {
       id: 1,

@@ -2,10 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'events-app',
-  template: `
-      <nav-bar></nav-bar>
-      <events-list></events-list>
-      `,
+  templateUrl: 'events-app.component.html' ,
   styles: [
     `
       .nav.navbar-nav {font-size: 15px;}

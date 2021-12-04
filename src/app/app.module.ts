@@ -7,6 +7,8 @@ import { EventsThumbnailComponent } from './events/events-thumbnail.component';
 import { NavComponent } from './nav/nav.component';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EventsDetailsComponent } from './events-details/events-details.component';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -14,11 +16,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EventsAppComponent,
     EventsListComponent,
     EventsThumbnailComponent,
-    NavComponent
+    NavComponent,
+    EventsDetailsComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right'
     })

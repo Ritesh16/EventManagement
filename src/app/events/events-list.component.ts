@@ -3,7 +3,6 @@ import { EventService } from '../_services/event.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'events-list',
   templateUrl: './events-list.component.html'
 })
 export class EventsListComponent implements OnInit {
