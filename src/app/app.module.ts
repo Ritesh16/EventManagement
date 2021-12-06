@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EventsDetailsComponent } from './events-details/events-details.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CreateEventComponent } from './create-event/create-event.component';
+import { ErrorComponent } from './error/error.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { CreateEventComponent } from './create-event/create-event.component';
     EventsThumbnailComponent,
     NavComponent,
     EventsDetailsComponent,
-    CreateEventComponent
+    CreateEventComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
