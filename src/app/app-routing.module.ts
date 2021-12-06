@@ -8,10 +8,11 @@ import { EventsDetailsComponent } from './events-details/events-details.componen
 import { EventsListComponent } from './events/events-list.component';
 import { EventActivatorGuard } from './_guard/event-activator.guard';
 import { PreventUnsavedChangesGuard } from './_guard/prevent-unsaved-changes.guard';
+import { EventListResolver } from './_resolver/event-list.resolver';
 
 const routes: Routes = [
   { path: 'events/new', component: CreateEventComponent, canDeactivate: [PreventUnsavedChangesGuard] },
-  { path: 'events', component: EventsListComponent },
+  { path: 'events', component: EventsListComponent, resolve: {events: EventListResolver} },
   { path: 'events/:id', component: EventsDetailsComponent, canActivate: [EventActivatorGuard]},
   { path: 'error', component: ErrorComponent },   
   { path: '', redirectTo: '/events', pathMatch: 'full' }
