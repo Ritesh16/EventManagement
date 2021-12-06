@@ -15,7 +15,7 @@ export class EventService {
     return this.events.find(event => event.id === id);
   }
 
-  events = [
+ events = [
     {
       id: 1,
       name: 'Angular Connect',

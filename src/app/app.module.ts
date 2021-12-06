@@ -11,6 +11,8 @@ import { EventsDetailsComponent } from './events-details/events-details.componen
 import { AppRoutingModule } from './app-routing.module';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { ErrorComponent } from './error/error.component';
+import { ConfirmDialogComponent } from './modals/confirm-dialog/confirm-dialog.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 @NgModule({
@@ -21,12 +23,14 @@ import { ErrorComponent } from './error/error.component';
     NavComponent,
     EventsDetailsComponent,
     CreateEventComponent,
-    ErrorComponent
+    ErrorComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    ModalModule.forRoot(),
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right'
     })
