@@ -13,6 +13,7 @@ import { CreateEventComponent } from './create-event/create-event.component';
 import { ErrorComponent } from './error/error.component';
 import { ConfirmDialogComponent } from './modals/confirm-dialog/confirm-dialog.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { UserComponent } from './user/user.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     EventsDetailsComponent,
     CreateEventComponent,
     ErrorComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
