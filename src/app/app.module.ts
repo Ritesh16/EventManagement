@@ -13,6 +13,8 @@ import { CreateEventComponent } from './create-event/create-event.component';
 import { ErrorComponent } from './error/error.component';
 import { ConfirmDialogComponent } from './modals/confirm-dialog/confirm-dialog.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateSessionComponent } from './create-session/create-session.component';
 
 @NgModule({
   declarations: [
@@ -23,13 +25,16 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     EventsDetailsComponent,
     CreateEventComponent,
     ErrorComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    CreateSessionComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     ModalModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right'
     })

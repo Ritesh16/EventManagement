@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CreateEventComponent } from './create-event/create-event.component';
+import { CreateSessionComponent } from './create-session/create-session.component';
 import { ErrorComponent } from './error/error.component';
 import { EventsAppComponent } from './events-app.component';
 import { EventsDetailsComponent } from './events-details/events-details.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'events/new', component: CreateEventComponent, canDeactivate: [PreventUnsavedChangesGuard] },
   { path: 'events', component: EventsListComponent, resolve: {events: EventListResolver} },
   { path: 'events/:id', component: EventsDetailsComponent, canActivate: [EventActivatorGuard]},
+  { path: 'events/session/new', component: CreateSessionComponent},
   { path: 'error', component: ErrorComponent },   
   { path: '', redirectTo: '/events', pathMatch: 'full' },
   { path: 'user', loadChildren: () => import('./user/user.module')
