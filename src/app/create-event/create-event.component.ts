@@ -22,6 +22,7 @@ export class CreateEventComponent implements OnInit {
   }
 
   cancel(){
+    this.isDirty = false;
     this.router.navigateByUrl('/events');
   }
 

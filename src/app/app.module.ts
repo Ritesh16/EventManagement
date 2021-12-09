@@ -15,6 +15,8 @@ import { ConfirmDialogComponent } from './modals/confirm-dialog/confirm-dialog.c
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateSessionComponent } from './create-session/create-session.component';
+import { SessionListComponent } from './session-list/session-list.component';
+import { CollapsibleWellComponent } from './common/collapsible-well/collapsible-well.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { CreateSessionComponent } from './create-session/create-session.componen
     CreateEventComponent,
     ErrorComponent,
     ConfirmDialogComponent,
-    CreateSessionComponent
+    CreateSessionComponent,
+    SessionListComponent,
+    CollapsibleWellComponent
   ],
   imports: [
     BrowserModule,
