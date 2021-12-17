@@ -5,7 +5,7 @@ import { EventsAppComponent } from './events-app.component';
 import { EventsListComponent } from './events/events-list.component';
 import { EventsThumbnailComponent } from './events/events-thumbnail.component';
 import { NavComponent } from './nav/nav.component';
-import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EventsDetailsComponent } from './events-details/events-details.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +18,12 @@ import { CreateSessionComponent } from './create-session/create-session.componen
 import { SessionListComponent } from './session-list/session-list.component';
 import { CollapsibleWellComponent } from './common/collapsible-well/collapsible-well.component';
 import { DurationPipe } from './_pipe/duration.pipe';
+import { JQ_TOKEN } from './_services/jquery.service';
+import { SimpleModalComponent } from './simple-modal/simple-modal.component';
+import { EventService } from './_services/event.service';
+import { ModalTriggerDirective } from './_directives/modal-trigger.directive';
+
+let JQuery = window['$'];
 
 @NgModule({
   declarations: [
@@ -32,7 +38,9 @@ import { DurationPipe } from './_pipe/duration.pipe';
     CreateSessionComponent,
     SessionListComponent,
     CollapsibleWellComponent,
-    DurationPipe
+    DurationPipe,
+    SimpleModalComponent,
+    ModalTriggerDirective
   ],
   imports: [
     BrowserModule,
@@ -45,7 +53,11 @@ import { DurationPipe } from './_pipe/duration.pipe';
       positionClass: 'toast-bottom-right'
     })
   ],
-  providers: [],
+  providers: [
+ EventService,
+ {provide: JQ_TOKEN, useValue: JQuery}
+
+  ],
   bootstrap: [EventsAppComponent]
 })
 export class AppModule { }
