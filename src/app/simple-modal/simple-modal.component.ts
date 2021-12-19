@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Inject, Input, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { JQ_TOKEN } from '../_services/jquery.service';
 
 @Component({
   selector: 'simple-modal',
@@ -8,10 +10,16 @@ import { Component, Input, OnInit } from '@angular/core';
 export class SimpleModalComponent implements OnInit {
 @Input() title: string;
 @Input() elementId: string;
+@ViewChild('modalContainer') containerEl: ElementRef;
 
-  constructor() { }
+  constructor(private router:Router, @Inject(JQ_TOKEN) private $: any ) { 
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+  }
 
   ngOnInit(): void {
   }
 
+  closeModal() {
+     this.$(this.containerEl.nativeElement).modal('hide');
+  }
 }
