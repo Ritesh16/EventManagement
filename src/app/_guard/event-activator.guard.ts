@@ -16,7 +16,6 @@ constructor(private eventService: EventService, private router: Router){
     route: ActivatedRouteSnapshot) {
    
     const eventExists = !!this.eventService.getEvent(+route.params['id']);
-     console.log(1,eventExists); 
 
     if(!eventExists) {
       this.router.navigateByUrl('/error');
