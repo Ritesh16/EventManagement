@@ -22,6 +22,7 @@ import { JQ_TOKEN } from './_services/jquery.service';
 import { SimpleModalComponent } from './simple-modal/simple-modal.component';
 import { EventService } from './_services/event.service';
 import { ModalTriggerDirective } from './_directives/modal-trigger.directive';
+import { UpvoteComponent } from './upvote/upvote.component';
 
 let JQuery = window['$'];
 
@@ -40,7 +41,8 @@ let JQuery = window['$'];
     CollapsibleWellComponent,
     DurationPipe,
     SimpleModalComponent,
-    ModalTriggerDirective
+    ModalTriggerDirective,
+    UpvoteComponent
   ],
   imports: [
     BrowserModule,
