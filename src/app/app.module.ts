@@ -23,6 +23,7 @@ import { SimpleModalComponent } from './simple-modal/simple-modal.component';
 import { EventService } from './_services/event.service';
 import { ModalTriggerDirective } from './_directives/modal-trigger.directive';
 import { UpvoteComponent } from './upvote/upvote.component';
+import { LocationValidatorDirective } from './_directives/location-validator.directive';
 
 let JQuery = window['$'];
 
@@ -42,7 +43,8 @@ let JQuery = window['$'];
     DurationPipe,
     SimpleModalComponent,
     ModalTriggerDirective,
-    UpvoteComponent
+    UpvoteComponent,
+    LocationValidatorDirective
   ],
   imports: [
     BrowserModule,
