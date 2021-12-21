@@ -9,17 +9,6 @@ export class LocationValidatorDirective implements Validator {
 
   constructor() { }
 
-
-  // validate(control: AbstractControl): ValidationErrors | null {
-  //   console.log(1,control.value);
-  // if((control.value.address && control.value.city && control.value.country)) {
-  //   console.log('hurrey');
-  //         return null;
-  //   } else {
-  //     return {validateLocation: false};
-  //   }
-  // }
-
   validate(formGroup: FormGroup): {[key: string]: any} {
    
     let addressControl = formGroup.controls['address'];
