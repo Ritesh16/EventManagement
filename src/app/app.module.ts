@@ -24,6 +24,7 @@ import { EventService } from './_services/event.service';
 import { ModalTriggerDirective } from './_directives/modal-trigger.directive';
 import { UpvoteComponent } from './upvote/upvote.component';
 import { LocationValidatorDirective } from './_directives/location-validator.directive';
+import { HttpClientModule } from '@angular/common/http';
 
 let JQuery = window['$'];
 
@@ -53,6 +54,7 @@ let JQuery = window['$'];
     ModalModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right'
     })
