@@ -25,8 +25,9 @@ export class EventService {
     .pipe(catchError(this.handleError<IEvent[]>('getEvents', [])));
   }
 
-  getEvent(id: number): IEvent  {
-    return EVENTS.find(event => event.id === id);
+  getEvent(id: number): Observable<IEvent>  {
+    return this.http.get<IEvent>('/api/events/' + id)
+    .pipe(catchError(this.handleError<IEvent>('getEvent')));
   }
 
   saveEvent(event) {
@@ -74,7 +75,7 @@ export class EventService {
 const EVENTS: IEvent[] = [
   {
     id: 1,
-    name: 'Angular Connect',
+    name: 'Angular Connect1',
     date: new Date('9/26/2036'),
     time: '10:00 am',
     price: 599.99,
