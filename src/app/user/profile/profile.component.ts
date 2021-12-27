@@ -20,7 +20,6 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.authService.currentUser);
     this.firstName = new FormControl(this.authService.currentUser.firstName, [Validators.required,
          Validators.pattern('[a-zA-Z].*')]);
     this.lastName = new FormControl(this.authService.currentUser.lastName, Validators.required);
@@ -37,9 +36,10 @@ export class ProfileComponent implements OnInit {
 
   saveProfile(profileFormValues){
     if(this.profileForm.valid){
-      this.authService.updateUserProfile(profileFormValues.firstName, profileFormValues.lastName);
-      this.toastr.success('Profile saved.');
-      // this.router.navigateByUrl('/events');
+      this.authService.updateUserProfile(profileFormValues.firstName, profileFormValues.lastName)
+        .subscribe(()=>{
+          this.toastr.success('Profile saved.');
+        });
     }
   }
 
@@ -49,5 +49,11 @@ export class ProfileComponent implements OnInit {
 
   validLastName() {
     return this.lastName.valid || this.lastName.untouched;
+  }
+
+  logout() { 
+    this.authService.logout().subscribe(() => {
+      this.router.navigateByUrl('/user/login');
+    });
   }
 }
