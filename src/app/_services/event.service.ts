@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, EventEmitter } from '@angular/core';
-import { catchError, Observable, of, Subject } from 'rxjs';
+import { catchError, Observable, of } from 'rxjs';
 import { IEvent, ISession } from '../_models/event.model';
 
 @Injectable({
