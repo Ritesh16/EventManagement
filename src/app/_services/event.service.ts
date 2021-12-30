@@ -21,13 +21,13 @@ export class EventService {
   }
 
   saveEvent(event) {
-    let options = {headers: new HttpHeaders({'Content-Type': 'application/json'})};
+    const options = {headers: new HttpHeaders({'Content-Type': 'application/json'})};
     return this.http.post('/api/events', event, options)
         .pipe(catchError(this.handleError<IEvent>('saveEvent')));
   }
 
   updateEvent(event) {
-    let index = EVENTS.findIndex(x => x.id = event.id);
+    const index = EVENTS.findIndex(x => x.id = event.id);
     EVENTS[index] = event;
   }
 

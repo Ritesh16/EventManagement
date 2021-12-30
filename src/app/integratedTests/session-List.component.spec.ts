@@ -1,9 +1,7 @@
 import { DebugElement, NO_ERRORS_SCHEMA } from "@angular/core";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { By } from "@angular/platform-browser";
-import { CollapsibleWellComponent } from "../common/collapsible-well/collapsible-well.component";
 import { SessionListComponent } from "../session-list/session-list.component";
-import { UpvoteComponent } from "../upvote/upvote.component";
 import { ISession } from "../_models/event.model";
 import { DurationPipe } from "../_pipe/duration.pipe";
 import { AuthService } from "../_services/auth.service";

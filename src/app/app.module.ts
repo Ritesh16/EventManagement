@@ -26,7 +26,7 @@ import { UpvoteComponent } from './upvote/upvote.component';
 import { LocationValidatorDirective } from './_directives/location-validator.directive';
 import { HttpClientModule } from '@angular/common/http';
 
-let JQuery = window['$'];
+const JQuery = window['$'];
 
 @NgModule({
   declarations: [

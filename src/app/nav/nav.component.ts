@@ -9,7 +9,7 @@ import { EventService } from '../_services/event.service';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
- searchTerm: string = "";
+ searchTerm = "";
  foundSessions: ISession[];
 
   constructor(public authService: AuthService, private eventService: EventService) { }
