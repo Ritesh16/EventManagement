@@ -8,14 +8,11 @@ import { EventService } from '../_services/event.service';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
-export class NavComponent implements OnInit {
+export class NavComponent {
  searchTerm = "";
  foundSessions: ISession[];
 
   constructor(public authService: AuthService, private eventService: EventService) { }
-
-  ngOnInit(): void {
-  }
 
   searchSessions(searchTerm) {
      this.eventService.searchSessions(searchTerm).subscribe
