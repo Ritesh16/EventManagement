@@ -46,4 +46,22 @@ describe('VoterService', () => {
         });
     });
 
+    describe('userHasVoted', () => {
+        it('if user has voted return true', () => {
+            const session = { id: 6, voters: ['john']};
+          
+            const output = voterService.userHasVoted(<ISession>session, 'john');
+
+            expect(output).toBe(true);
+        });
+
+        it('if user has not voted return false', () => {
+            const session = { id: 6, voters: ['john']};
+          
+            const output = voterService.userHasVoted(<ISession>session, 'joe');
+
+            expect(output).toBe(false);
+        });
+    });
+
 });

@@ -34,8 +34,8 @@ export class VoterService {
     return session.voters.some(voter => voter === voterName);
   }
 
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error:any) : Observable<T> => {
+  private handleError<T>(result?: T) {
+    return (error) : Observable<T> => {
       console.log(error);
       return of(result as T);
     };
