@@ -39,14 +39,61 @@ describe('authService', () => {
         });
     });
 
-    // describe('login', () => {
-    //     it('check if login is failed and error is handled.', () => {
-    //         const result = {status:400, error: 'login failed'};
-    //         mockHttp.post.and.returnValue(of(result));
+    describe('login', () => {
+        it('check if login is failed and error is handled.', () => {
+            const result = {status:400, error: 'login failed'};
+            mockHttp.post.and.returnValue(of(result));
 
-    //         authService.loginUser('ritesh','sharma').subscribe(d=> {
-    //             expect(400).toBe(<number>d.status);
-    //         });
-    //     });
-    // });
+            authService.loginUser('ritesh','sharma').subscribe(d=> {
+                expect(Object.values(result).toLocaleString()).toBe(Object.values(d).toLocaleString());
+            });
+        });
+
+        it('check if login is successful and current user is set.', () => {
+            const result = <IUser>{firstName: 'Ritesh', lastName: 'Sharma', id: 1, userName: 'Ritesh'};
+            mockHttp.post.and.returnValue(of(result));
+
+            authService.loginUser('ritesh','sharma').subscribe(d=> {
+                expect(result.firstName).toBe(authService.currentUser.firstName);
+                
+            });
+        });
+
+        it('check if http is called while login.', () => {
+            const result = <IUser>{firstName: 'Ritesh', lastName: 'Sharma', id: 1, userName: 'Ritesh'};
+            mockHttp.post.and.returnValue(of(result));
+
+            const loginInfo = {username: 'ritesh', password: 'sharma'};
+            authService.loginUser('ritesh','sharma');
+
+            expect(mockHttp.post).toHaveBeenCalledWith('/api/login', loginInfo, 
+            jasmine.any(Object));
+        });
+    });
+
+    describe('checkAuthenticationStatus', () => {
+        it('checkAuthenticationStatus if http is called.', () => {
+            const result = {firstName: 'Ritesh', lastName: 'Sharma', id: 1, userName: 'Ritesh'};
+         
+            mockHttp.get.and.returnValue(of(result));
+
+            authService.checkAuthenticationStatus();
+
+            expect(result.firstName).toBe(authService.currentUser.firstName);
+            expect(mockHttp.get).toHaveBeenCalledWith('/api/currentIdentity');
+        });
+    });
+
+    describe('updateUserProfile', () => {
+        it('updateUserProfile if http is called.', () => {
+            const result = {firstName: 'Ritesh', lastName: 'Sharma', id: 1, userName: 'Ritesh'};
+         
+            mockHttp.put.and.returnValue(of(result));
+
+            authService.updateUserProfile('ritesh','sharma');
+
+            expect(mockHttp.put).toHaveBeenCalledWith('/api/users/1', authService.currentUser, 
+            jasmine.any(Object));
+        });
+    });
 });
